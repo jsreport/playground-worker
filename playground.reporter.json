@@ -1,0 +1,12 @@
+{
+  "engines": {
+    "ejs": "jsreport-ejs",
+    "pug": "jsreport-pug"
+  },
+  "recipes": {
+    "phantom-pdf": "jsreport-phantom-pdf",
+    "electron-pdf": "jsreport-electron-pdf",
+    "wkhtmltopdf": "jsreport-wkhtmltopdf",
+    "fop-pdf": "jsreport-fop-pdf"
+  }
+}
