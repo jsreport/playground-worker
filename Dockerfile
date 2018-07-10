@@ -33,8 +33,7 @@ RUN npm install jsreport-ejs@2.0.0 \
 RUN npm cache clean -f && \
     rm -rf /tmp/*
 
-COPY ./jo.reporter.json /app
-COPY ./bootstrap/* /app/bootstrap
+COPY ./playground.reporter.json /app
 
 ENV electron_strategy electron-ipc
 ENV phantom_strategy phantom-server
