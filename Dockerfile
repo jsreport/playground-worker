@@ -1,4 +1,4 @@
-FROM jsreport/jsreport-worker:0.3.5
+FROM jsreport/jsreport-worker:0.3.6
 
 # phantomjs and electron
 RUN apt-get update && \
