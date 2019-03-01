@@ -1,4 +1,4 @@
-FROM jsreport/jsreport-worker:0.3.8
+FROM jsreport/jsreport-worker:0.4.1
 
 # phantomjs and electron
 RUN apt-get update && \
@@ -29,7 +29,8 @@ RUN npm install jsreport-ejs@2.0.0 \
     jsreport-electron-pdf@3.0.0 \
     jsreport-wkhtmltopdf@2.0.3 \
     jsreport-fop-pdf@2.0.0 \
-    jsreport/jsreport-pdf-utils
+    jsreport-pdf-utils@1.3.1 \
+    jsreport-html-to-xlsx@2.3.0
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
