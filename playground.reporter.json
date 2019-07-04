@@ -7,6 +7,9 @@
     "phantom-pdf": "jsreport-phantom-pdf",
     "electron-pdf": "jsreport-electron-pdf",
     "wkhtmltopdf": "jsreport-wkhtmltopdf",
-    "fop-pdf": "jsreport-fop-pdf"
+    "fop-pdf": "jsreport-fop-pdf",
+    "docx": "jsreport-docx",
+    "pptx": "jsreport-pptx",
+    "static-pdf": "jsreport-static-pdf"
   }
 }

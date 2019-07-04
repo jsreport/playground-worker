@@ -28,7 +28,11 @@ RUN npm install jsreport-ejs@2.1.0 \
     electron@1.8.7 \
     jsreport-electron-pdf@3.0.0 \
     jsreport-wkhtmltopdf@2.1.0 \
-    jsreport-fop-pdf@2.1.0
+    jsreport-fop-pdf@2.1.0 \
+    jsreport-docx@2.0.0 \
+    jsreport-pptx@0.1.1 \
+    jsreport-pdf-sign@0.1.1 \
+    jsreport-static-pdf@0.2.0
 
 
 RUN npm cache clean -f && \
