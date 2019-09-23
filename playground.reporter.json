@@ -9,9 +9,6 @@
     "electron-pdf": "jsreport-electron-pdf",
     "wkhtmltopdf": "jsreport-wkhtmltopdf",
     "fop-pdf": "jsreport-fop-pdf",
-    "docx": "jsreport-docx",
-    "pptx": "jsreport-pptx",
-    "static-pdf": "jsreport-static-pdf",
     "html-to-text": "jsreport-html-to-text",
     "html-embedded-in-docx": "jsreport-html-embedded-in-docx",
     "docxtemplater": "jsreport-docxtemplater"
