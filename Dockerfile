@@ -24,17 +24,17 @@ ENV PATH "$PATH:/app/fop-2.1"
 RUN npm install jsreport-ejs@2.2.0 \
     jsreport-pug@3.1.0 \
     phantomjs-exact-2-1-1@0.1.0 \
-    jsreport-phantom-pdf@2.4.2 \
+    jsreport-phantom-pdf@2.5.1 \
     electron@1.8.7 \
-    jsreport-electron-pdf@3.0.0 \
-    jsreport-wkhtmltopdf@2.1.1 \
-    jsreport-fop-pdf@2.1.0 \
-    jsreport-pdf-sign@0.3.0 \
+    jsreport-electron-pdf@3.1.0 \
+    jsreport-wkhtmltopdf@2.2.0 \
+    jsreport-fop-pdf@2.2.0 \
+    jsreport-pdf-sign@0.4.0 \
     jsreport-pdf-meta@0.2.0 \
-    jsreport-phantom-image@2.0.1 \
-    jsreport-html-to-text@2.0.2 \
-    jsreport-docxtemplater@1.1.0 \
-    jsreport-html-embedded-in-docx@2.0.0
+    jsreport-phantom-image@2.1.0 \
+    jsreport-html-to-text@2.1.0 \
+    jsreport-docxtemplater@1.3.0 \
+    jsreport-html-embedded-in-docx@2.2.0
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
