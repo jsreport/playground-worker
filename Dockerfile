@@ -1,5 +1,7 @@
 FROM jsreport/jsreport-worker:0.5.0
 
+USER root
+
 # phantomjs and electron
 RUN apt-get update && \
     apt-get install -y bzip2 libgtk2.0-dev libxtst-dev libxss1 libgconf2-dev libnss3-dev libasound2-dev libnotify4 libxrender1 libxext6 xvfb dbus-x11 && \
@@ -17,7 +19,10 @@ RUN apt-get update && \
     chmod +x fop-2.1/fop && \
     # cleanup
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
-    rm -rf /src/*.deb
+    rm -rf /src/*.deb && \
+    rm -rf /tmp/*
+
+USER jsreport:jsreport
 
 ENV PATH "$PATH:/app/fop-2.1"
 
