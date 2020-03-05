@@ -36,11 +36,10 @@ RUN npm install jsreport-ejs@2.2.0 \
     jsreport-docxtemplater@1.1.0 \
     jsreport-html-embedded-in-docx@2.0.0
 
-
 RUN npm cache clean -f && \
     rm -rf /tmp/*
 
-COPY ./playground.reporter.json /app
+COPY --chown=jsreport:jsreport ./playground.reporter.json /app
 
 ENV electron_strategy electron-ipc
 ENV phantom_strategy phantom-server
