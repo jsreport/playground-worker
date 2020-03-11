@@ -53,6 +53,8 @@ ENV phantom_strategy phantom-server
 
 ENV DISPLAY :99
 
+USER root
+
 # startup script to launch dbus and xvfb correctly along with our app:
 # - we ensure that lock files created by Xvfb server (stored at /tmp/ with file names like /tmp/.X99-lock)
 #   are cleanup correctly on each container run (rm -f /tmp/.X*lock),
@@ -71,4 +73,6 @@ ENV DISPLAY :99
 #   in case that errors from xvfb needs to be printed to stdout for debugging purposes just pass -e /dev/stdout option (xvfb-run -e /dev/stdout .......)
 #   the important part of this command is the -ac option in --server-args, -ac disables host-based access control mechanisms in Xvfb server,
 #   which prevents the connection to the Xvfb server from our app
+
+USER root
 CMD rm -f /tmp/.X*lock && rm -rfd /tmp/xvfb-run* && xvfb-run --server-num=99 --server-args='-screen 0 1024x768x24 -ac' node server.js
