@@ -1,4 +1,4 @@
-FROM jsreport/jsreport-worker:0.7.0
+FROM jsreport/jsreport-worker
 
 USER root
 
@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm -rf phantomjs* && \
     # java fop
     apt-get install -y default-jre unzip && \
-    curl -o fop.zip apache.miloslavbrada.cz/xmlgraphics/fop/binaries/fop-2.1-bin.zip && \
+    curl -o fop.zip archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.1-bin.zip && \
     unzip fop.zip && \
     rm fop.zip && \
     chmod +x fop-2.1/fop && \
@@ -35,13 +35,11 @@ RUN npm install jsreport-ejs@2.2.0 \
     jsreport-electron-pdf@3.1.0 \
     jsreport-wkhtmltopdf@2.2.0 \
     jsreport-fop-pdf@2.2.0 \
-    jsreport-pdf-sign@0.4.0 \
-    jsreport-pdf-meta@0.2.0 \
     jsreport-phantom-image@2.1.0 \
     jsreport-html-to-text@2.1.0 \
     jsreport-docxtemplater@1.3.0 \
     jsreport-html-embedded-in-docx@2.2.0 \
-    jsreport-office-password@1.0.0
+    jsreport/jsreport-office-password
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
