@@ -39,7 +39,7 @@ RUN npm install jsreport-ejs@2.2.0 \
     jsreport-html-to-text@2.1.0 \
     jsreport-docxtemplater@1.3.0 \
     jsreport-html-embedded-in-docx@2.2.0 \
-    jsreport/jsreport-office-password
+    jsreport-office-password@1.0.1
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
