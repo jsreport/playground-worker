@@ -1,4 +1,4 @@
-FROM jsreport/jsreport-worker:0.9.1
+FROM jsreport/worker
 
 USER root
 
@@ -18,33 +18,24 @@ RUN apt-get update && \
 
 USER jsreport:jsreport
 
-RUN npm install jsreport-ejs@2.2.0 \
-    jsreport-pug@3.1.0 \
-    phantomjs-exact-2-1-1@0.1.0 \
+RUN yarn add --ignore-workspace-root-check phantomjs-exact-2-1-1@0.1.0 \
     cheerio-page-eval@1.0.0 \
-    # jsreport-phantom-pdf@2.6.1 \
-    electron@1.8.7 \
-    jsreport-electron-pdf@3.2.0 \
-    # jsreport-wkhtmltopdf@2.3.0 \
-    # jsreport-phantom-image@2.1.1 \
-    jsreport-html-to-text@2.1.0 \
-    jsreport-docxtemplater@1.4.0 \
-    jsreport-html-embedded-in-docx@2.2.0 \
-    jsreport-office-password@1.0.1
+    electron@1.8.7
 
-RUN npm cache clean -f && \
-    rm -rf /tmp/*
+RUN yarn cache clean --all && rm -rf /tmp/*
 
 ENV electron_strategy electron-ipc
 ENV phantom_strategy phantom-server
 
-ENV extensions_docxTemplater /app/node_modules/@jsreport/jsreport-docxtemplater
-ENV extensions_ejs /app/node_modules/@jsreport/jsreport-ejs
-ENV extensions_electronPdf /app/node_modules/@jsreport/jsreport-electron-pdf
-ENV extensions_htmlEmbeddedInDocx /app/node_modules/@jsreport/jsreport-html-embedded-in-docx
-ENV extensions_htmlToText /app/node_modules/@jsreport/jsreport-html-to-text
-ENV extensions_officePassword /app/node_modules/@jsreport/jsreport-office-password
-ENV extensions_pug /app/node_modules/@jsreport/jsreport-pug
+# extensions from packages should already be there in the jsreport/worker image
+# we just need to define the env var locations for the rest of extensions
+ENV extensions_docxTemplater /app/packages/jsreport-docxtemplater
+ENV extensions_ejs /app/packages/jsreport-ejs
+ENV extensions_electronPdf /app/packages/jsreport-electron-pdf
+ENV extensions_htmlEmbeddedInDocx /app/packages/jsreport-html-embedded-in-docx
+ENV extensions_htmlToText /app/packages/jsreport-html-to-text
+ENV extensions_officePassword /app/packages/jsreport-office-password
+ENV extensions_pug /app/packages/jsreport-pug
 
 ENV DISPLAY :99
 
