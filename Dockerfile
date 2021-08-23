@@ -1,4 +1,4 @@
-FROM jsreport/jsreport-worker:0.9.1
+FROM jsreport/worker:3.0.0-beta.1
 
 USER root
 
@@ -18,19 +18,19 @@ RUN apt-get update && \
 
 USER jsreport:jsreport
 
-RUN npm install jsreport-ejs@2.2.0 \
-    jsreport-pug@3.1.0 \
-    phantomjs-exact-2-1-1@0.1.0 \
-    cheerio-page-eval@1.0.0 \
-    # jsreport-phantom-pdf@2.6.1 \
-    electron@1.8.7 \
-    jsreport-electron-pdf@3.2.0 \
+RUN npm install @jsreport/jsreport-ejs@3.0.0-beta.1 \
+    @jsreport/jsreport-pug@4.0.0-beta.1 \
+    @jsreport/jsreport-electron-pdf@4.0.0-beta.1 \
+    @jsreport/jsreport-html-to-text@3.0.0-beta.3 \
+    @jsreport/jsreport-docxtemplater@3.0.0-beta.1 \
+    @jsreport/jsreport-html-embedded-in-docx@3.0.0-beta.1 \
+    @jsreport/jsreport-office-password@3.0.0-beta.1 \
     # jsreport-wkhtmltopdf@2.3.0 \
     # jsreport-phantom-image@2.1.1 \
-    jsreport-html-to-text@2.1.0 \
-    jsreport-docxtemplater@1.4.0 \
-    jsreport-html-embedded-in-docx@2.2.0 \
-    jsreport-office-password@1.0.1
+    # phantomjs-exact-2-1-1@0.1.0 \
+    cheerio-page-eval@1.0.0 \
+    # jsreport-phantom-pdf@2.6.1 \
+    electron@1.8.7
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
