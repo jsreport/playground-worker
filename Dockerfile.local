@@ -11,6 +11,12 @@ RUN apt-get update && \
     chmod +x phantomjs-1.9.8-linux-x86_64/bin/phantomjs && \
     mv phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/ && \
     rm -rf phantomjs* && \
+    # unoconv - it needs an update of libreoffice on the xenial ubuntu
+    apt-get -y install unoconv && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:libreoffice/ppa && \
+    apt-get update && \
+    apt install -y libreoffice && \
     # cleanup
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     rm -rf /src/*.deb && \
@@ -25,7 +31,6 @@ RUN yarn add --ignore-workspace-root-check phantomjs-exact-2-1-1@0.1.0 \
 RUN yarn cache clean --all && rm -rf /tmp/*
 
 ENV electron_strategy electron-ipc
-ENV phantom_strategy phantom-server
 
 # extensions from packages should already be there in the jsreport/worker image
 # we just need to define the env var locations for the rest of extensions
@@ -36,6 +41,10 @@ ENV extensions_htmlEmbeddedInDocx /app/packages/jsreport-html-embedded-in-docx
 ENV extensions_htmlToText /app/packages/jsreport-html-to-text
 ENV extensions_officePassword /app/packages/jsreport-office-password
 ENV extensions_pug /app/packages/jsreport-pug
+ENV extensions_unoconv /app/packages/jsreport-unoconv
+ENV extensions_phantomPdf /app/packages/jsreport-phantom-pdf
+ENV extensions_wkhtmltopdf /app/packages/jsreport-wkhtmltopdf
+ENV extensions_phantomImage /app/packages/jsreport-phantom-image
 
 ENV DISPLAY :99
 

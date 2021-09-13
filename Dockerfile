@@ -11,6 +11,12 @@ RUN apt-get update && \
     chmod +x phantomjs-1.9.8-linux-x86_64/bin/phantomjs && \
     mv phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/ && \
     rm -rf phantomjs* && \
+    # unoconv - it needs an update of libreoffice on the xenial ubuntu
+    apt-get -y install unoconv && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:libreoffice/ppa && \
+    apt-get update && \
+    apt install -y libreoffice && \
     # cleanup
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     rm -rf /src/*.deb && \
@@ -25,11 +31,12 @@ RUN npm install @jsreport/jsreport-ejs@3.0.0-beta.1 \
     @jsreport/jsreport-docxtemplater@3.0.0-beta.1 \
     @jsreport/jsreport-html-embedded-in-docx@3.0.0-beta.1 \
     @jsreport/jsreport-office-password@3.0.0-beta.1 \
-    # jsreport-wkhtmltopdf@2.3.0 \
-    # jsreport-phantom-image@2.1.1 \
-    # phantomjs-exact-2-1-1@0.1.0 \
-    cheerio-page-eval@1.0.0 \
-    # jsreport-phantom-pdf@2.6.1 \
+    @jsreport/jsreport-unoconv@3.0.0-beta.1 \
+    @jsreport/jsreport-wkhtmltopdf@3.0.0-beta.1 \
+    @jsreport/jsreport-phantom-pdf@3.0.0-beta.1 \
+    @jsreport/jsreport-phantom-image@3.0.0-beta.2 \
+    phantomjs-exact-2-1-1@0.1.0 \
+    cheerio-page-eval@1.0.0 \    
     electron@1.8.7
 
 RUN npm cache clean -f && \
@@ -38,14 +45,17 @@ RUN npm cache clean -f && \
 ENV electron_strategy electron-ipc
 ENV phantom_strategy phantom-server
 
-ENV extensions_docxTemplater /app/node_modules/@jsreport/jsreport-docxtemplater
-ENV extensions_ejs /app/node_modules/@jsreport/jsreport-ejs
-ENV extensions_electronPdf /app/node_modules/@jsreport/jsreport-electron-pdf
-ENV extensions_htmlEmbeddedInDocx /app/node_modules/@jsreport/jsreport-html-embedded-in-docx
-ENV extensions_htmlToText /app/node_modules/@jsreport/jsreport-html-to-text
-ENV extensions_officePassword /app/node_modules/@jsreport/jsreport-office-password
-ENV extensions_pug /app/node_modules/@jsreport/jsreport-pug
-
+ENV extensions_docxTemplater /app/packages/jsreport-docxtemplater
+ENV extensions_ejs /app/packages/jsreport-ejs
+ENV extensions_electronPdf /app/packages/jsreport-electron-pdf
+ENV extensions_htmlEmbeddedInDocx /app/packages/jsreport-html-embedded-in-docx
+ENV extensions_htmlToText /app/packages/jsreport-html-to-text
+ENV extensions_officePassword /app/packages/jsreport-office-password
+ENV extensions_pug /app/packages/jsreport-pug
+ENV extensions_unoconv /app/packages/jsreport-unoconv
+ENV extensions_phantomPdf /app/packages/jsreport-phantom-pdf
+ENV extensions_wkhtmltopdf /app/packages/jsreport-wkhtmltopdf
+ENV extensions_phantomImage /app/packages/jsreport-phantom-image
 ENV DISPLAY :99
 
 USER root
