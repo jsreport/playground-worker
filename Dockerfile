@@ -37,13 +37,10 @@ RUN npm install @jsreport/jsreport-ejs@3.0.0 \
     @jsreport/jsreport-phantom-image@3.0.1 \
     phantomjs-exact-2-1-1@0.1.0 \
     cheerio-page-eval@1.0.0 \
-    electron@1.8.7
+    electron@1.8.7 --save
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
-
-ENV electron_strategy electron-ipc
-ENV phantom_strategy phantom-server
 
 ENV extensions_docxTemplater /app/packages/jsreport-docxtemplater
 ENV extensions_ejs /app/packages/jsreport-ejs

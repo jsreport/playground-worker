@@ -30,8 +30,6 @@ RUN yarn add --ignore-workspace-root-check phantomjs-exact-2-1-1@0.1.0 \
 
 RUN yarn cache clean --all && rm -rf /tmp/*
 
-ENV electron_strategy electron-ipc
-
 # extensions from packages should already be there in the jsreport/worker image
 # we just need to define the env var locations for the rest of extensions
 ENV extensions_docxTemplater /app/packages/jsreport-docxtemplater
