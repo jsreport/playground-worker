@@ -42,17 +42,6 @@ RUN npm install @jsreport/jsreport-ejs@3.0.0 \
 RUN npm cache clean -f && \
     rm -rf /tmp/*
 
-ENV extensions_docxTemplater /app/packages/jsreport-docxtemplater
-ENV extensions_ejs /app/packages/jsreport-ejs
-ENV extensions_electronPdf /app/packages/jsreport-electron-pdf
-ENV extensions_htmlEmbeddedInDocx /app/packages/jsreport-html-embedded-in-docx
-ENV extensions_htmlToText /app/packages/jsreport-html-to-text
-ENV extensions_officePassword /app/packages/jsreport-office-password
-ENV extensions_pug /app/packages/jsreport-pug
-ENV extensions_unoconv /app/packages/jsreport-unoconv
-ENV extensions_phantomPdf /app/packages/jsreport-phantom-pdf
-ENV extensions_wkhtmltopdf /app/packages/jsreport-wkhtmltopdf
-ENV extensions_phantomImage /app/packages/jsreport-phantom-image
 ENV DISPLAY :99
 
 USER root
