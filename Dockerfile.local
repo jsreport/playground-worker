@@ -3,7 +3,8 @@ FROM jsreport/worker:local
 USER root
 
 # phantomjs and electron
-RUN add-apt-repository ppa:litenstein/libicu60-xenial && \
+RUN apt-get update && \
+    add-apt-repository ppa:litenstein/libicu60-xenial && \
     apt-get update && \
     apt-get install -y libgtk2.0-dev libpango1.0-dev libharfbuzz-dev libharfbuzz-icu0 libicu60 && \
     apt-get install -y bzip2 libxtst-dev libxss1 libgconf2-dev libnss3-dev libasound2-dev libnotify4 libxrender1 libxext6 xvfb dbus-x11 && \
