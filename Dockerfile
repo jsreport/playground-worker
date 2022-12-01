@@ -1,4 +1,4 @@
-FROM jsreport/worker:3.5.0
+FROM jsreport/worker:3.9.0
 
 USER root
 
@@ -29,15 +29,15 @@ USER jsreport:jsreport
 
 RUN npm install @jsreport/jsreport-ejs@3.0.0 \
     @jsreport/jsreport-pug@4.0.0 \
-    @jsreport/jsreport-electron-pdf@4.0.1 \
+    @jsreport/jsreport-electron-pdf@4.2.0 \
     @jsreport/jsreport-html-to-text@3.0.0 \
     @jsreport/jsreport-docxtemplater@3.1.0 \
     @jsreport/jsreport-html-embedded-in-docx@3.0.0 \
-    @jsreport/jsreport-office-password@3.0.0 \
-    @jsreport/jsreport-unoconv@3.0.0 \
-    @jsreport/jsreport-wkhtmltopdf@3.0.1 \
-    @jsreport/jsreport-phantom-pdf@3.0.1 \
-    @jsreport/jsreport-phantom-image@3.0.1 \
+    @jsreport/jsreport-office-password@3.0.1 \
+    @jsreport/jsreport-unoconv@3.0.1 \
+    @jsreport/jsreport-wkhtmltopdf@3.1.0 \
+    @jsreport/jsreport-phantom-pdf@3.1.0 \
+    @jsreport/jsreport-phantom-image@3.1.0 \
     phantomjs-exact-2-1-1@0.1.0 \
     cheerio-page-eval@1.0.0 \
     electron@1.8.7 --save
