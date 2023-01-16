@@ -35,8 +35,8 @@ RUN npm install @jsreport/jsreport-ejs@3.0.0 \
     @jsreport/jsreport-html-embedded-in-docx@3.0.0 \
     @jsreport/jsreport-office-password@3.0.1 \
     @jsreport/jsreport-unoconv@3.0.1 \
-    @jsreport/jsreport-wkhtmltopdf@3.1.0 \
-    @jsreport/jsreport-phantom-pdf@3.1.0 \
+    @jsreport/jsreport-wkhtmltopdf@3.2.0 \
+    @jsreport/jsreport-phantom-pdf@3.2.0 \
     @jsreport/jsreport-phantom-image@3.1.0 \
     phantomjs-exact-2-1-1@0.1.0 \
     cheerio-page-eval@1.0.0 \
