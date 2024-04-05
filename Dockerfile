@@ -1,4 +1,4 @@
-FROM jsreport/worker:4.3.0
+FROM jsreport/worker:4.3.1
 
 USER root
 
