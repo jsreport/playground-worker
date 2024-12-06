@@ -36,10 +36,6 @@ RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
 
 USER jsreport:jsreport
 
-### wkhtmltopdf nejede ze nezna tu utilitu
-### electron nejak neumi psat do tempu
-### specificka verze chromu mozna toto https://freeshell.de/phd/chromium/README.md
-
 RUN npm install @jsreport/jsreport-ejs@4.0.0 \
     @jsreport/jsreport-pug@5.0.0 \
     @jsreport/jsreport-html-to-text@4.2.0 \
@@ -55,3 +51,5 @@ RUN npm install @jsreport/jsreport-ejs@4.0.0 \
 
 RUN npm cache clean -f && \
     rm -rf /tmp/*
+
+USER root
